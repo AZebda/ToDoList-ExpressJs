@@ -20,16 +20,16 @@ app.post('/addtask', function (req, res) {
 });
 
 app.post("/removetask", function(req, res) {
-     var completeTask = req.body.check;
-if (typeof completeTask === "string") {
-     complete.push(completeTask);
-  task.splice(task.indexOf(completeTask), 1);
-  } else if (typeof completeTask === "object") {
+    var completeTask = req.body.check;
+    if (typeof completeTask === "string") {
+        complete.push(completeTask);
+        task.splice(task.indexOf(completeTask), 1);
+    } else if (typeof completeTask === "object") {
     for (var i = 0; i < completeTask.length; i++) {
         complete.push(completeTask[i]);
-    task.splice(task.indexOf(completeTask[i]), 1);
+        task.splice(task.indexOf(completeTask[i]), 1);
     }
-}
+    }
    res.redirect("/");
 });
 
